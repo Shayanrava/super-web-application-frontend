@@ -40,7 +40,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter basename='/super-web-application'>
+      <BrowserRouter basename='/super-web-application-frontend'>
         <AppBar position="static" className=' fixed top-0 z-50 '>
           <Toolbar className='hidden md:flex justify-center items-center gap-20'>
             <Typography variant="h6" className='hover:scale-125 transition duration-700' >
@@ -59,13 +59,10 @@ function App() {
 
           <Toolbar className='felx  md:hidden justify-end items-center gap-20'>
             <Box className="flex mx-auto" >
-
             </Box>
-
             <Button variant="text" size="large" className='text-white' onClick={() => { setIsDrawerShow(!isDrawerShow) }} >
               <FormatAlignJustifyIcon ></FormatAlignJustifyIcon>
             </Button>
-
           </Toolbar>
         </AppBar>
 

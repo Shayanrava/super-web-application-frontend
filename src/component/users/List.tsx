@@ -3,20 +3,27 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button'
+import Modal from '@mui/material/Modal';
 import CardHeader from '@mui/material/CardHeader'
 import Avatar from '@mui/material/Avatar'
+import  CircularProgress  from '@mui/material/CircularProgress';
 import { People } from "./Home";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Edit from "./Edit";
 import axios from "axios";
+import { useState } from 'react';
 
 interface Props {
   people: People[],
 }
 
+
 export default function List({ people }: Props) {
 
+  const [openWait , setOpenWait] = useState<boolean>(false)
+
   const DeleteUser = async (ID: number): Promise<void> => {
+    setOpenWait(!openWait)
     try {
       await axios.delete(`https://super-web-application-backend-production.up.railway.app/users/${ID}`)
     } catch (error) {
@@ -73,6 +80,16 @@ export default function List({ people }: Props) {
         })}
 
       </Box>
+      <Modal
+        open={openWait}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box className='w-11/12 md:w-1/2  xl:w-1/3 h-2/5 bg-red-400 px-5 flex flex-col items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border'>
+          <Typography variant="body1" className="text-center text-white">Please wait… the Railway server might be sleeping.</Typography>
+          <CircularProgress className="text-red-700 my-6" />
+        </Box>
+      </Modal>
     </div>
   );
 }

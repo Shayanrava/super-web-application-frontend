@@ -9,6 +9,7 @@ import Box from "@mui/material/Box";
 
 export interface People {
     name: string,
+    password: string,
     nationality: string,
     age: string,
     url?: string,
@@ -37,14 +38,15 @@ export default function Home() {
                             </Typography>
                         </Alert>
                         <List people={people}></List>
-                        <Add people={people}  ></Add>
+                        <Add></Add>
                     </div>
                 </div>
             )
             :
             (
-                <Box className="flex justify-center items-center mt-36 w-full">
+                <Box className="flex  flex-col justify-center items-center mt-36 w-full">
                     <CircularProgress className="" />
+                    <Typography className="text-center text-sky-600 my-2">Please wait… the Railway server might be sleeping or you may need to VPN</Typography>
                 </Box>
             )
     )
