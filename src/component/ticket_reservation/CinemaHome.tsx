@@ -130,7 +130,7 @@ export default function CinemaHome(): JSX.Element {
           showtimes={showtimes}
         ></CinemaShowtimeList>
 
-        <CinemaShowtimeConfig movieInfo={movieInfo}></CinemaShowtimeConfig>
+        <CinemaShowtimeConfig movieInfo={movieInfo} showtimes={showtimes}></CinemaShowtimeConfig>
       </Box>
     </div >
   )

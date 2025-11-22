@@ -4,7 +4,6 @@ import Home from './component/users/Home';
 import { AppBar, Toolbar, Button } from "@mui/material";
 import Typography from '@mui/material/Typography'
 import CinemaHome from './component/ticket_reservation/CinemaHome';
-import FootballResults from './component/football-results/FootballResults';
 import ExchangeRates from './component/exchange_rates/ExchangeRates';
 import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
 import Drawer from '@mui/material/Drawer';
@@ -13,7 +12,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import CottageIcon from '@mui/icons-material/Cottage';
 import LocalActivityIcon from '@mui/icons-material/LocalActivity';
@@ -34,7 +32,6 @@ function App() {
   const drawerInfo : drawer[] = [
     { icon: <CottageIcon />, text: 'Home', link: '/' },
     { icon: <LocalActivityIcon />, text: 'Book Tickets', link: '/book-ticket' },
-    { icon: <SportsSoccerIcon />, text: 'Football Result', link: '/football-results' },
     { icon: <MonetizationOnIcon />, text: 'Exchamge Rates', link: '/exchange' }
   ]
 
@@ -48,9 +45,6 @@ function App() {
             </Typography>
             <Typography variant="h6" className='hover:scale-125 transition duration-700'  >
               <Link to="/book-ticket">Book Tickets</Link>
-            </Typography>
-            <Typography variant="h6" className='hover:scale-125 transition duration-700' >
-              <Link to="/football-results">Football Result</Link>
             </Typography>
             <Typography variant="h6" className='hover:scale-125 transition duration-700' >
               <Link to="/exchange"> Exchamge Rates </Link>
@@ -98,7 +92,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/book-ticket" element={<CinemaHome />} />
-          <Route path="/football-results" element={<FootballResults />} />
           <Route path="/exchange" element={<ExchangeRates />} />
         </Routes>
       </BrowserRouter>

@@ -79,7 +79,7 @@ export const CinemaShowtimeList = ({ setSelectedShowtimeID, btnArr, setBtnArr, m
                             showtimes.length > 0 ?
                                 showtimes.map((showtime) => {
                                     return (
-                                        <Box onClick={() => SelectMovie(showtime.id)} className="flex  w-full h-5/6 sm:h-3/4 md:h-2/3 lg:h-3/5   my-1 hover:bg-red-300 px-2 py-3 border border-black rounded-md gap-y-3">
+                                        <Box onClick={() => SelectMovie(showtime.id)} className="flex  w-full my-1 hover:bg-red-300 px-2 py-3 border border-black rounded-md gap-y-3 cursor-pointer">
                                             <Box className='flex flex-col h-full justify-center w-1/2 sm:w-1/3 md:w-1/4 xl:w-1/4 my-1 sm:my-0'>
                                                 <img src={GetMovieById(showtime.movie_id)?.imageUrl} alt="" className='h-2/3 min-h-1/2 sm:h-full w-full object-cover rounded-md' />
                                                 <Box className="flex justify-center w-full h-auto sm:hidden rounded-md mt-1 mb-3">
@@ -108,7 +108,7 @@ export const CinemaShowtimeList = ({ setSelectedShowtimeID, btnArr, setBtnArr, m
                                             </Box>
 
                                             <Box className="flex flex-col justify-center  items-center w-2/3 md:w-4/5 h-full">
-                                                <Box> <Typography className='text-base font-bold mt-1' >{GetMovieById(showtime.movie_id)?.title}</Typography></Box>
+                                                <Box> <Typography className='text-base font-bold mt-1 text-center' >{GetMovieById(showtime.movie_id)?.title}</Typography></Box>
                                                 <Box className='flex flex-col justify-center md:flex-row w-full h-full'>
                                                     <Box className="w-full  md:w-2/3 bg-cyan-300 rounded-md mx-1 my-1 flex flex-col items-center ">
                                                         <Box className="w-full "> <Typography variant="body2" className='px-5 py-2 text-justify  sm:text-sm' >{GetMovieById(showtime.movie_id)?.description}</Typography></Box>
