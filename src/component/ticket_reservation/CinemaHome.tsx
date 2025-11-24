@@ -4,8 +4,9 @@ import axios, { AxiosResponse } from 'axios';
 import CinemaHeader from './CinemaHeader';
 import { CinemaSeats } from './CinemaSeats';
 import { BuyButton } from './BuyButton';
-import { CinemaShowtimeList } from './CinemaShowtimeList';
-import { CinemaShowtimeConfig } from './CinemaShowtimeConfig';
+import { ShowtimeList } from './ShowtimeList';
+import { ShowtimeConfig } from './ShowtimeConfig';
+import { MovieConfig } from './MovieConfig';
 
 export class reserve {
   row: number;
@@ -36,7 +37,7 @@ export interface movie {
   title: string,
   description: string,
   genre: string,
-  releaseYear: string,
+  releaseYear: number,
   rating: number
   ratingCount: number,
   imageUrl: string
@@ -122,15 +123,17 @@ export default function CinemaHome(): JSX.Element {
           setNumberSelectedSeat={setNumberSelectedSeat}
         ></BuyButton>
 
-        <CinemaShowtimeList
+        <ShowtimeList
           setSelectedShowtimeID={setSelectedShowtimeID}
           btnArr={btnArr}
           setBtnArr={setBtnArr}
           movieInfo={movieInfo}
           showtimes={showtimes}
-        ></CinemaShowtimeList>
+        ></ShowtimeList>
 
-        <CinemaShowtimeConfig movieInfo={movieInfo} showtimes={showtimes}></CinemaShowtimeConfig>
+        <ShowtimeConfig movieInfo={movieInfo} showtimes={showtimes}></ShowtimeConfig>
+
+        <MovieConfig movieInfo={movieInfo}></MovieConfig>
       </Box>
     </div >
   )

@@ -20,7 +20,7 @@ interface showtimeListProps {
     showtimes: showtime[]
 }
 
-export const CinemaShowtimeList = ({ setSelectedShowtimeID, btnArr, setBtnArr, movieInfo, showtimes }: showtimeListProps) => {
+export const ShowtimeList = ({ setSelectedShowtimeID, btnArr, setBtnArr, movieInfo, showtimes }: showtimeListProps) => {
 
     // Opens a modal that indicates list of showtimes
     const [isOpenShowtime, setIsOpenShowtime] = useState<boolean>(false)

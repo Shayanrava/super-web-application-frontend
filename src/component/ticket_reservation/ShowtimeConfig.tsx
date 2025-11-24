@@ -21,7 +21,7 @@ interface showtimeProps {
     showtimes: showtime[]
 }
 
-export const CinemaShowtimeConfig = ({ movieInfo, showtimes }: showtimeProps) => {
+export const ShowtimeConfig = ({ movieInfo, showtimes }: showtimeProps) => {
 
     // open a modal that indicates list of showtimes
     const [isOpenShowtimes, setIsOpenShowtimes] = useState<boolean>(false)
@@ -277,7 +277,7 @@ export const CinemaShowtimeConfig = ({ movieInfo, showtimes }: showtimeProps) =>
                         </Box>
                         <Box className="w-full flex justify-center py-3 bg-slate-400">
                             <Button onClick={AddMovieHandler} variant="contained" className='bg-fuchsia-600 hover:bg-fuchsia-700'>
-                                Add Movie
+                                Add Showtime
                             </Button>
                         </Box>
                     </Box>
@@ -338,7 +338,14 @@ export const CinemaShowtimeConfig = ({ movieInfo, showtimes }: showtimeProps) =>
 
             <Modal
                 open={isOpenInfo}
-                onClose={() => setIsOpenInfo(!isOpenInfo)}
+                onClose={() => {
+                    setIsOpenInfo(!isOpenInfo)
+                    setDate(new Date().toISOString().slice(0, 10))
+                    setStartTime(new Date().toISOString().slice(11, 19))
+                    setPrice(0)
+                    setErrors([false,false,false,false])
+                }
+                }
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
@@ -351,8 +358,8 @@ export const CinemaShowtimeConfig = ({ movieInfo, showtimes }: showtimeProps) =>
                         <form action="" className='flex flex-col items-center px-4' onSubmit={(e) => SubmitHandler(e)} >
                             <TextField type="date" error={errors[0]} label="Date" value={date} onChange={(e) => setDate(e.target.value)} className='w-full md:w-3/4 lg:w-3/5 xl:w-1/2 my-7 mx-10' />
                             <TextField type="time" error={errors[1]} label="Start Time" value={startTime} onChange={(e) => setStartTime(e.target.value)} className='w-full md:w-3/4 lg:w-3/5 xl:w-1/2 my-7 mx-10' />
-                            <TextField type="time" error={errors[1]} label="End Time" value={endTime} onChange={(e) => setEndTime(e.target.value)} className='w-full md:w-3/4 lg:w-3/5 xl:w-1/2 my-7 mx-10' />
-                            <TextField type="number" error={errors[2]} label="Price" value={price} onChange={(e) => setPrice(Number(e.target.value))} className='w-full md:w-3/4 lg:w-3/5 xl:w-1/2 my-7 mx-10' />
+                            <TextField type="time" error={errors[2]} label="End Time" value={endTime} onChange={(e) => setEndTime(e.target.value)} className='w-full md:w-3/4 lg:w-3/5 xl:w-1/2 my-7 mx-10' />
+                            <TextField type="number" error={errors[3]} label="Price" value={price} onChange={(e) => setPrice(Number(e.target.value))} className='w-full md:w-3/4 lg:w-3/5 xl:w-1/2 my-7 mx-10' />
                             <div className="flex justify-center w-full">
                                 <Button
                                     className="w-1/3 md:w-1/4 xl:w-1/5 border-0 bg-sky-400 text-white rounded-md px-5 py-3 my-3 hover:shadow-lg hover:bg-[rgba(56,189,248,.9)]"
