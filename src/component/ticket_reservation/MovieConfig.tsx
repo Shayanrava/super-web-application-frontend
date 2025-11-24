@@ -6,7 +6,7 @@ import Modal from '@mui/material/Modal'
 import Rating from '@mui/material/Rating'
 import Typography from '@mui/material/Typography'
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocalActivityIcon from '@mui/icons-material/LocalActivity';
+import LiveTvIcon from '@mui/icons-material/LiveTv';
 import React, { FormEvent, useState } from 'react'
 import axios from 'axios'
 import { movie } from './CinemaHome'
@@ -149,10 +149,10 @@ export const MovieConfig = ({ movieInfo }: movieListProps) => {
 
     return (
         <>
-            <Box className='flex w-full justify-center my-5'>
-                <Button variant="text" onClick={() => setIsOpenMovie(!isOpenMovie)} className='flex justify-center gap-2 bg-[#607d8b] text-white hover:bg-[#455a64]' >
+            <Box className='flex justify-center'>
+                <Button variant="text" onClick={() => setIsOpenMovie(!isOpenMovie)} className='flex justify-center gap-2 bg-sky-500 text-white hover:bg-sky-600' >
                     <Typography variant="body1" > Movie Config </Typography>
-                    <LocalActivityIcon ></LocalActivityIcon>
+                    <LiveTvIcon></LiveTvIcon>
                 </Button>
             </Box>
 

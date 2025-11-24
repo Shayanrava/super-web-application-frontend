@@ -55,7 +55,7 @@ export const ShowtimeList = ({ setSelectedShowtimeID, btnArr, setBtnArr, movieIn
 
     return (
         <>
-            <Box className='flex w-full justify-center my-5'>
+            <Box className='flex justify-center'>
                 <Button variant="text" onClick={() => setIsOpenShowtime(!isOpenShowtime)} className='flex justify-center gap-2 bg-[#607d8b] text-white hover:bg-[#455a64]' >
                     <Typography variant="body1" > List of showtimes </Typography>
                     <LocalActivityIcon ></LocalActivityIcon>

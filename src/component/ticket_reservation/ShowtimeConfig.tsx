@@ -164,7 +164,7 @@ export const ShowtimeConfig = ({ movieInfo, showtimes }: showtimeProps) => {
 
     return (
         <>
-            <Box className='flex w-full justify-center '>
+            <Box className='flex justify-center '>
                 <Button variant="text" onClick={() => setIsOpenShowtimes(!isOpenShowtimes)} className='flex justify-center gap-2 bg-green-500 text-white hover:bg-green-600' >
                     <Typography variant="body1" > showtimes config </Typography>
                     <MovieIcon ></MovieIcon>
@@ -282,7 +282,7 @@ export const ShowtimeConfig = ({ movieInfo, showtimes }: showtimeProps) => {
                         </Box>
                     </Box>
                 </Fade>
-            </Modal >
+            </Modal>
 
             <Modal
                 open={isOpenMovie}

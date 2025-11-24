@@ -7,6 +7,7 @@ import { BuyButton } from './BuyButton';
 import { ShowtimeList } from './ShowtimeList';
 import { ShowtimeConfig } from './ShowtimeConfig';
 import { MovieConfig } from './MovieConfig';
+import { VoteButton } from './VoteButton';
 
 export class reserve {
   row: number;
@@ -90,6 +91,7 @@ export default function CinemaHome(): JSX.Element {
     GetShowtimes()
     GetMovies()
   }, [])
+  
   const GetShowtimes = async () => {
     const res: AxiosResponse<any, any, {}> = await axios.get("https://super-web-application-backend-production.up.railway.app/showtimes")
     setShowtimes(res.data)
@@ -123,17 +125,22 @@ export default function CinemaHome(): JSX.Element {
           setNumberSelectedSeat={setNumberSelectedSeat}
         ></BuyButton>
 
-        <ShowtimeList
-          setSelectedShowtimeID={setSelectedShowtimeID}
-          btnArr={btnArr}
-          setBtnArr={setBtnArr}
-          movieInfo={movieInfo}
-          showtimes={showtimes}
-        ></ShowtimeList>
+        <Box className="w-full flex  flex-col md:flex-row justify-center gap-5 my-5 ">
+          <ShowtimeList
+            setSelectedShowtimeID={setSelectedShowtimeID}
+            btnArr={btnArr}
+            setBtnArr={setBtnArr}
+            movieInfo={movieInfo}
+            showtimes={showtimes}
+          ></ShowtimeList>
+          <VoteButton movieInfo={movieInfo}></VoteButton>
+        </Box>
 
-        <ShowtimeConfig movieInfo={movieInfo} showtimes={showtimes}></ShowtimeConfig>
+        <Box className="w-full flex  flex-col md:flex-row justify-center gap-5">
+          <MovieConfig movieInfo={movieInfo}></MovieConfig>
+          <ShowtimeConfig movieInfo={movieInfo} showtimes={showtimes}></ShowtimeConfig>
+        </Box>
 
-        <MovieConfig movieInfo={movieInfo}></MovieConfig>
       </Box>
     </div >
   )
